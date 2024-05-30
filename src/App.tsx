@@ -61,7 +61,7 @@ function App() {
     { 
       headerName: "Balance",
       field: "balance",
-    
+      cellStyle: params => params.value < 0 ? { color: 'red' } : {color: 'green'},
       // Formats balance from 42517 to $42,517.00
       // Adds two decimal places and replaces every thousand with a comma using regular expression
       valueFormatter: (p) => "$" + p.value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}, // in here you will finish formatting the balance,
@@ -108,15 +108,12 @@ function App() {
     // Check if it matches with search
     return value.includes(search.toLowerCase());
   });
-  
-  const gridOptions= {
+
+  const gridOptions: GridOptions = {
     pagination: true,
     rowSelection: 'multiple',
-    suppressDragLeaveHidesColumns: true,
+    suppressDragLeaveHidesColumns: true, // Disables columns from getting removed if they are dragged
     enableCharts: true,
-    defaultColDef: defaultColDef,
-    rowData: filteredRowData,
-    columnDefs: columnDefs,
   }
 
   return (
@@ -157,7 +154,11 @@ function App() {
 
       <AgGridReact
         gridOptions={gridOptions}
+        defaultColDef={defaultColDef}
+        rowData={filteredRowData}
+        columnDefs={columnDefs}
       />
+
     </div>
   
   );
