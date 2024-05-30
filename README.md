@@ -34,3 +34,13 @@ This project involves developing a simple React application that displays a tabl
 - Add the search functionality with dynamic input and dropdown to select the search field.
 - Add the toggle feature for IP address column visibility.
 - Style the application, making use of the styled components.
+-----------------------------
+## Additional Features:
+- Pagination of grid
+- Balance Cell Formatting
+
+## Edge Cases:
+During the development, a couple of edge cases were considered:
+- Responsiveness across varying screen sizes
+- Balance Field Display
+- Empty Data Set
